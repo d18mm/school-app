@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>subject</title>
+
+  </head>
+  <body>
+     <a href="/"> back to home </a>
+    <div class="">
+
+
+    <h1>subject</h1>
+     <table>
+     <thead>
+       <th>id</th>
+       <th>Subject Name</th>
+
+     </thead>
+     <% var id = 1
+       data.forEach(res => { %>
+
+     <tbody>
+       <td><%= id %></td>
+       <td><%= res.subject_name %></td>
+     </tbody>
+     <% id++ }) %>
+
+   </table>
+   </div>
+   <br>
+  </body>
+</html>
