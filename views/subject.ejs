@@ -3,31 +3,58 @@
   <head>
     <meta charset="utf-8">
     <title>subject</title>
-
   </head>
+  <style>
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+    th, td {
+      border: none;
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(even){background-color: #f2f2f2}
+  </style>
   <body>
-     <a href="/"> back to home </a>
-    <div class="">
-
-
     <h1>subject</h1>
-     <table>
-     <thead>
-       <th>id</th>
-       <th>Subject Name</th>
+    <div class="">
+      <a href="/"> back to home </a>
+      <table>
+        <thead>
+          <th>id</th>
+          <th>Subject Name</th>
+          <th>Teacher</th>
+          <th>Studen</th>
+          <th>action</th>
+        </thead>
+        <% var id = 1
+        data.forEach(res => { %>
+        <tbody>
+         <td><%= id %></td>
+         <td><%= res.subject_name %></td>
+         <td>
+         <% if(res.Teachers){ %>
+           <% for(var i =0; i< res.Teachers.length;i++){ %>
+           <%= res.Teachers[i].first_Name  %> |
+           <%} %>
+         <% } else{%>
+           <td> </td>
+         <% }%>
+         </td>
+         <td> <a href="#">Enrolled Students</a></td>
+         <td>
+            <a href="/subject/delete/<%= res.id%>">delete</a>
+            <a href="#">edit </a>
 
-     </thead>
-     <% var id = 1
-       data.forEach(res => { %>
+         </td>
+        </tbody>
+         <% id++ }) %>
+      </table>
+      <a href="/subject/add">Add Subject </a>
+    </div>
 
-     <tbody>
-       <td><%= id %></td>
-       <td><%= res.subject_name %></td>
-     </tbody>
-     <% id++ }) %>
-
-   </table>
-   </div>
-   <br>
   </body>
 </html>

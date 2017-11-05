@@ -1,36 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>teacher</title>
-  </head>
-  <body>
-    <h2>teacher </h2> <br>
 
-    <a href="/"> back to home </a>
-    <h2>Teacher</h2>
+<head>
+  <meta charset="utf-8">
+  <title>teacher</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+      border: none;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Teacher</h2>
+  <a href="/"> back to home </a>
+  <div style="overflow-x:auto;">
     <table>
-      <thead>
-        <th>id</th>
-        <th>firs name</th>
-        <th>last name</th>
-        <th>Email</th>
-      </thead>
-      <% var id = 1
-      data.forEach(req =>{%>
+
+      <th>no</th>
+      <th>firs name</th>
+      <th>last name</th>
+      <th>fullname</th>
+      <th>Email</th>
+      <th>subject</th>
+      <th>option</th>
+      <%var no = 1;
+            data.forEach(res=> { %>
         <tbody>
-          <td><%= id%></td>
-          <td><%= req.first_Name%></td>
-          <td><%= req.last_Name%></td>
-          <td><%= req.email %></td>
           <td>
-
-            <a href="#">Delete</a>
-            <a href="#">Edit</a>
+            <%= no %>
           </td>
-          <% id++}) %>
-        </tbody>
+          <td>
+            <%= res.first_Name %>
+          </td>
+          <td>
+            <%= res.last_Name %>
+          </td>
+          <td>
+            <%= res.fullname %>
+          </td>
+          <td>
+            <%= res.email %>
+          </td>
+          <td>
+            <%= res.Subject ? res.Subject.subject_name : 'Unassigned' %>
+          </td>
 
+          <td>
+            <a href="/teacher/delete/<%= res.id%>">delete</a>
+            <a href="/teacher/edit/ <%= res.id%>">edit</a>
+          </td> <br>
+          <% no++ }) %>
+
+        </tbody>
     </table>
-  </body>
+    <a href="/teacher/add">add teacher</a>
+  </div>
+</body>
+
 </html>

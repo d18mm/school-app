@@ -13,12 +13,13 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Students', [{
-      first_name: 'tes1',
-      last_name: 'tes',
-      email:'tes1tes@sekolah.id',
+      first_Name: 'John Doe',
+      last_Name: 'dooeee',
+    email : 'johnDoe@kdksd',
       createdAt :new Date(),
       updatedAt :new Date()
-   }], {});
+    }], {});
+  },
 
   down: (queryInterface, Sequelize) => {
     /*
