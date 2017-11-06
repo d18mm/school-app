@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     StudentId: DataTypes.INTEGER,
     SubjectId: DataTypes.INTEGER
   }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+
   });
+  StudentSubjects.associate = function (models) {
+    StudentSubjects.belongsTo(models.Subject);
+    StudentSubjects.belongsTo(models.Students)
+  };
   return StudentSubjects;
 };

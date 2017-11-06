@@ -10,8 +10,6 @@ routers.get('/student', (req, res) => {
       })
     })
 })
-
-
 routers.get('/student/add', (req, res) => {
   res.render('addstudent')
 })
@@ -28,6 +26,20 @@ routers.post('/student/add', (req, res) => {
     .then(studen => {
       res.redirect('/student')
     })
+})
+
+routers.get('/student/delete/:id',(req,res)=>{
+  modelstuden.Students.destroy({
+    where:{
+      id: req.params.id
+    }
+  })
+  .then(studen=>{
+    res.redirect('/student')
+  })
+  .catch(err=>{
+    res.send(err)
+  })
 })
 
 routers.get('/studen/edit/:id', (req, res) => {
@@ -73,6 +85,18 @@ routers.get('/student/addsubject/:id',(req,res)=>{
     .then(subjek=>{
       res.render(`addsubjectstudent`,{datasub:subjek,data:student})
     })
+  })
+})
+
+routers.post('/student/addsubject/:id',(req,res)=>{
+  // console.log('---->',req.body);
+  modelstuden.StudentSubjects.create({
+    StudentId : req.params.id,
+    SubjectId : req.body.SubjectId
+  })
+  .then(()=>{
+    res.redirect('/student')
+    // res.send(data)
   })
 })
 

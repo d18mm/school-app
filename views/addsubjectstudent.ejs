@@ -15,12 +15,12 @@
       <tr>
         <td>
             <form action="/student/addsubject/<%=data.id%>" method="post">
-              <input type="text" name="first_Name" value="<%=data.first_Name%>" placeholder="First Name">
-              <input type="text" name="last_Name" value="<%=data.last_Name%>" placeholder="Last Name">
-              <input type="text" name="email" value="<%=data.email%>" placeholder="Email">
-              <select name="subject_name">
-                <%datasub.forEach(datasub=>{%>
-                  <option value="<%=data.id%>"><%=datasub.subject_name%></option>
+              <input type="text" name="first_Name" disabled value="<%=data.first_Name%>" placeholder="First Name">
+              <input type="text" name="last_Name" disabled value="<%=data.last_Name%>" placeholder="Last Name">
+              <input type="text" name="email" disabled value="<%=data.email%>" placeholder="Email">
+              <select name="SubjectId">
+                <%datasub.forEach(datasubject=>{%>
+                  <option  value="<%=datasubject.id%>"><%=datasubject.subject_name%></option>
                 <%})%>
               </select>
                 <input type="submit" value="submit">
@@ -29,4 +29,3 @@
       </tr>
     </tbody>
   </body>
-</html>

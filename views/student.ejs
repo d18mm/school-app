@@ -1,68 +1,43 @@
-<!DOCTYPE html>
-<html>
+<%- include ./partial/header %>
 
-<head>
-  <meta charset="utf-8">
-  <title>student</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-      width: 100%;
-      border: 1px solid #ddd;
-    }
-    th,
-    td {
-      border: none;
-      text-align: left;
-      padding: 8px;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f2f2
-    }
-  </style>
-</head>
-
-<body>
-  <h2>student Data</h2>
-  <div style="overflow-x:auto;">
-    <a href="/">Home</a>
-    <table>
-      <td>No</td>
-      <td>id</td>
-      <td>last name</td>
-      <td>firs name</td>
-      <td>email</td>
-      <td>Subject</td>
-      <td>option</td>
-      <% var id = 1
-        data.forEach(res => {%>
-        <tbody>
-          <td>
-            <%= id%>
-          </td>
-          <td>
-            <%= res.id%>
-          </td>
-          <td>
-            <%= res.first_Name  %>
-          </td>
-          <td>
-            <%= res.last_Name  %>
-          </td>
-          <td>
-            <%= res.email  %>
-          </td>
-          <td><a href="/student/addsubject/<%=res.id%>">add Subject</a></td>
-          <td>
-            <a href="#">delete</a>
-            <a href="/studen/edit/ <%= res.id%>">edit</a>
-          </td>
-        </tbody>
-        <% id++ })%>
-    </table>
-    <a href="/student/add">Add Studen</a>
+<h1>Student</h1>
+<a href="/">back</a>
+<a href="/student/add">add studen</a>
+<table>
+  <td>No</td>
+  <td>id</td>
+  <td>last name</td>
+  <td>firs name</td>
+  <td>email</td>
+  <td>Subject</td>
+  <td>option</td>
+  <% var id = 1
+      data.forEach(res => {%>
+    <tbody>
+      <td>
+        <%= id%>
+      </td>
+      <td>
+        <%= res.id%>
+      </td>
+      <td>
+        <%= res.first_Name  %>
+      </td>
+      <td>
+        <%= res.last_Name  %>
+      </td>
+      <td>
+        <%= res.email  %>
+      </td>
+      <td><a href="/student/addsubject/<%=res.id%>">add Subject</a></td>
+      <td>
+        <a href="/student/delete/<%= res.id %>">delete</a>
+        <a href="/studen/edit/ <%= res.id%>">edit</a>
+      </td>
+    </tbody>
+    <% id++ })%>
+  </table>
   </div>
-</body>
+  </body>
 
 </html>

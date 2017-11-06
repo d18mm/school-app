@@ -1,36 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>teacher</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-      width: 100%;
-      border: 1px solid #ddd;
-    }
-
-    th,
-    td {
-      border: none;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f2f2f2
-    }
-  </style>
-</head>
-
-<body>
-  <h2>Teacher</h2>
+<h2>Teacher</h2>
   <a href="/"> back to home </a>
-  <div style="overflow-x:auto;">
-    <table>
+  <%- include ./partial/header %>
 
+  <div class="addteacher">
+  <button type="button" class="btn btn-default btn-lg"><a href="/teacher/add">add teacher</a></button>
+  </div>
+
+    <table>
       <th>no</th>
       <th>firs name</th>
       <th>last name</th>
@@ -68,8 +44,8 @@
 
         </tbody>
     </table>
-    <a href="/teacher/add">add teacher</a>
-  </div>
+  
+
 </body>
 
 </html>

@@ -16,11 +16,12 @@
         padding: 8px;
       }
       tr:nth-child(even){background-color: #f2f2f2}
+
     </style>
   </head>
   <body>
     <h1>add teacher</h1>
-    <a href="/student">back</a>
+    <a href="/teacher">back</a>
     <div class="">
       <form action="/teacher/add" method="post">
         <table>
@@ -39,9 +40,14 @@
           <tr>
             <td>Subject</td>
             <td>
-            <select class="" name="subject">
-              <option value=""></option>
-            </select>
+              <select class="" name="SubjectId">
+                <<option value="Subject"> </option>>
+                  <% for(var i=0; i< data.length; i++) {%>
+                  <option value="<%= data[i].id %>">
+                    <%= data[i].subject_name %>
+                  </option>
+                  <%}%>
+                </select>
             </td>
           </tr>
           <tr>

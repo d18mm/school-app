@@ -10,8 +10,7 @@ routers.get('/subject', (req, res) => {
   )
     .then(subjects => {
       res.render('subject', {
-        data: subjects,
-        title: 'subject page'
+        data: subjects
       })
       // res.send(subjects)
     })
@@ -19,7 +18,6 @@ routers.get('/subject', (req, res) => {
       res.send(err)
     })
 })
-
 routers.get('/subject/add', (req, res) => {
   res.render('addsubjek')
 })
@@ -47,6 +45,25 @@ routers.get('/subject/delete/:id', (req, res) => {
     .catch(err => {
       res.send(err)
     })
+})
+
+routers.get('/subject/enrolled/:id',(req,res)=>{
+  modelsubjek.StudentSubjects.findAll({
+    attributes: ['id','StudentId', 'SubjectId','score'],
+    include:[
+      {model: modelsubjek.Students},
+      {model: modelsubjek.Subject}
+    ],
+    where:{
+      SubjectId : req.params.id
+    }
+  })
+  .then(studentsubject =>{
+    console.log(studentsubject);
+     res.render('enrolled',{data:studentsubject})
+    //  res.send(studentsubject..score)
+
+  })
 })
 
 

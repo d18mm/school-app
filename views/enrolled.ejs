@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <a href="/subject">Back To subject</a><br>
+  <h2><%= data[0].Subject.subject_name %></h2>
+  <table>
+    <tbody>
+      <table>
+        <thead>
+          <th>No</th>
+          <th>Student</th>
+          <th>Score</th>
+          <th>Desc</th>
+      </thead>
+        <% let no = 1;
+        for(var i=0; i< data.length; i++) {%>
+      <tbody>
+          <td>
+            <%= no %>
+          </td>
+          <td>
+            <%= data[i].Student.first_Name %>
+          </td>
+      </tbody>
+      <% no++} %>
+      </table>
+
+  </table>
+  </tbody>
+</body>
+
+</html>
